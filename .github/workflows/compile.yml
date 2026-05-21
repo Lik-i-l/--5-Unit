@@ -1,0 +1,31 @@
+name: Compile and run TypeScript
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  compile-and-run:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      
+      - name: Install TypeScript
+        run: npm install
+      
+      - name: Compile TypeScript to JavaScript
+        run: npm run build
+      
+      - name: Show compiled JavaScript
+        run: cat dist/cat.js
+      
+      - name: Run the program
+        run: node dist/cat.js
