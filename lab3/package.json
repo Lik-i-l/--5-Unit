@@ -2,10 +2,10 @@
   "name": "lab3",
   "version": "1.0.0",
   "scripts": {
-    "start": "ts-node math.ts"
+    "build": "tsc",
+    "start": "node dist/math.js"
   },
   "devDependencies": {
-    "typescript": "^5.0.0",
-    "ts-node": "^10.9.0"
+    "typescript": "^5.0.0"
   }
 }
