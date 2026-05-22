@@ -26,7 +26,6 @@ export class Cat {
     }
 }
 
-// Запуск программы
 const cat = new Cat("Мурка", 3, "Сиамская");
 console.log(cat.getInfo());
 console.log(cat.getAge());
