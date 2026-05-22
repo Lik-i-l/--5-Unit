@@ -1,4 +1,4 @@
-class Cat {
+export class Cat {
     name: string;
     private age: number;
     breed: string;
@@ -26,12 +26,10 @@ class Cat {
     }
 }
 
+// Создание экземпляра для обычного запуска
 const cat = new Cat("Мурка", 3, "Сиамская");
-
 console.log(cat.getInfo());
 console.log(cat.getAge());
-
 cat.setAge(5);
 console.log(cat.getAge());
-
 cat.setAge(100);
