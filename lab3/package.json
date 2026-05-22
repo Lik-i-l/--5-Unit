@@ -1,0 +1,11 @@
+{
+  "name": "lab3",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "ts-node math.ts"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.0"
+  }
+}
