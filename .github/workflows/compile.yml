@@ -18,7 +18,7 @@ jobs:
         with:
           node-version: '20'
       
-      - name: Install TypeScript
+      - name: Install TypeScript and Jest
         run: npm install
       
       - name: Compile TypeScript to JavaScript
@@ -29,3 +29,6 @@ jobs:
       
       - name: Run the program
         run: node dist/cat.js
+      
+      - name: Run tests
+        run: npm test
