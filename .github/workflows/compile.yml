@@ -1,3 +1,29 @@
+name: Test all labs
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  test-cat:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies
+        run: npm install
+      - name: Compile TypeScript to JavaScript
+        run: npm run build
+      - name: Show compiled JavaScript
+        run: cat dist/cat.js
+      - name: Run the program
+        run: node dist/cat.js
+      - name: Test Cat
+        run: npm test
+
   test-lab4:
     runs-on: ubuntu-latest
     steps:
@@ -6,22 +32,12 @@
         with:
           node-version: '20'
       - name: Install dependencies (lab4)
-        run: |
-          cd lab4
-          npm install
+        run: cd lab4 && npm install
       - name: Compile TypeScript to JavaScript (lab4)
-        run: |
-          cd lab4
-          npm run build
+        run: cd lab4 && npm run build
       - name: Show compiled JavaScript (lab4)
-        run: |
-          cd lab4
-          cat dist/index.js
+        run: cd lab4 && cat dist/index.js
       - name: Run the program (lab4)
-        run: |
-          cd lab4
-          node dist/index.js
+        run: cd lab4 && node dist/index.js
       - name: Test Lab4
-        run: |
-          cd lab4
-          npm test
+        run: cd lab4 && npm test
