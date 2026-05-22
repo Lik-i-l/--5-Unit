@@ -33,6 +33,10 @@ jobs:
           node-version: '20'
       - name: Install dependencies (lab3)
         run: cd lab3 && npm install
+      - name: Compile TypeScript to JavaScript (lab3)
+        run: cd lab3 && npm run build
+      - name: Show compiled JavaScript (lab3)
+        run: cd lab3 && cat dist/math.js
       - name: Run Task 2 (lab3)
         run: cd lab3 && npm start
 
