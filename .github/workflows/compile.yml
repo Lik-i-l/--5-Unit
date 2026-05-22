@@ -1,4 +1,4 @@
-name: Test Cat
+name: Test Cat with full build
 
 on:
   push:
@@ -15,5 +15,11 @@ jobs:
           node-version: '20'
       - name: Install dependencies
         run: npm install
+      - name: Compile TypeScript to JavaScript
+        run: npm run build
+      - name: Show compiled JavaScript
+        run: cat dist/cat.js
+      - name: Run the program
+        run: node dist/cat.js
       - name: Test Cat
         run: npm test
