@@ -6,23 +6,35 @@ on:
   workflow_dispatch:
 
 jobs:
-  test-cat:
+  test-lab5:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Install dependencies
-        run: npm install
-      - name: Compile TypeScript to JavaScript
-        run: npm run build
-      - name: Show compiled JavaScript
-        run: cat dist/cat.js
-      - name: Run the program
-        run: node dist/cat.js
-      - name: Test Cat
-        run: npm test
+      - name: Install dependencies (lab5)
+        run: cd lab5 && npm install
+      - name: Compile TypeScript to JavaScript (lab5)
+        run: cd lab5 && npm run build
+      - name: Show compiled JavaScript (lab5)
+        run: cd lab5 && cat dist/cat.js
+      - name: Run the program (lab5)
+        run: cd lab5 && node dist/cat.js
+      - name: Test Lab5
+        run: cd lab5 && npm test
+
+  run-lab3:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies (lab3)
+        run: cd lab3 && npm install
+      - name: Run Task 2 (lab3)
+        run: cd lab3 && npm start
 
   test-lab4:
     runs-on: ubuntu-latest
@@ -41,15 +53,3 @@ jobs:
         run: cd lab4 && node dist/index.js
       - name: Test Lab4
         run: cd lab4 && npm test
-
-  run-lab3:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - name: Install dependencies (lab3)
-        run: cd lab3 && npm install
-      - name: Run Task 2 (lab3)
-        run: cd lab3 && npm start
