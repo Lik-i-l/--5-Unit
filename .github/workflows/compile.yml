@@ -41,3 +41,15 @@ jobs:
         run: cd lab4 && node dist/index.js
       - name: Test Lab4
         run: cd lab4 && npm test
+
+  run-lab3:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies (lab3)
+        run: cd lab3 && npm install
+      - name: Run Task 2 (lab3)
+        run: cd lab3 && npm start
