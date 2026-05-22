@@ -26,7 +26,7 @@ export class Cat {
     }
 }
 
-// Создание экземпляра для обычного запуска
+// Запуск программы
 const cat = new Cat("Мурка", 3, "Сиамская");
 console.log(cat.getInfo());
 console.log(cat.getAge());
