@@ -1,4 +1,4 @@
-name: Compile and run TypeScript
+name: Test all labs
 
 on:
   push:
@@ -6,29 +6,27 @@ on:
   workflow_dispatch:
 
 jobs:
-  compile-and-run:
+  test-cat:
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      
       - name: Install dependencies
         run: npm install
-      
-      - name: Compile TypeScript to JavaScript
-        run: npm run build
-      
-      - name: Show compiled JavaScript
-        run: cat dist/cat.js
-      
-      - name: Run the program
-        run: node dist/cat.js
-      
-      - name: Run tests
+      - name: Test Cat (Задание 1)
         run: npm test
+
+  test-lab3:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Test Lab3 (Math)
+        run: |
+          cd lab3
+          npm install
+          npm test
