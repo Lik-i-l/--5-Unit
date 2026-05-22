@@ -1,4 +1,4 @@
-name: Test Cat with full build
+name: Test all labs
 
 on:
   push:
@@ -23,3 +23,31 @@ jobs:
         run: node dist/cat.js
       - name: Test Cat
         run: npm test
+
+  test-lab3:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install dependencies (lab3)
+        run: |
+          cd lab3
+          npm install
+      - name: Compile TypeScript to JavaScript (lab3)
+        run: |
+          cd lab3
+          npm run build
+      - name: Show compiled JavaScript (lab3)
+        run: |
+          cd lab3
+          cat dist/index.js
+      - name: Run the program (lab3)
+        run: |
+          cd lab3
+          node dist/index.js
+      - name: Test Lab3
+        run: |
+          cd lab3
+          npm test
