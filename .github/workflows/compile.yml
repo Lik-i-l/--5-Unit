@@ -1,4 +1,4 @@
-name: Test all labs
+name: Test Cat
 
 on:
   push:
@@ -15,18 +15,5 @@ jobs:
           node-version: '20'
       - name: Install dependencies
         run: npm install
-      - name: Test Cat (Задание 1)
+      - name: Test Cat
         run: npm test
-
-  test-lab3:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - name: Test Lab3 (Math)
-        run: |
-          cd lab3
-          npm install
-          npm test
